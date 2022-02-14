@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import shopStore from "../Stores/shopStore";
-import { observe } from "mobx";
+
 import { observer } from "mobx-react";
 
 const shopList = () => {
