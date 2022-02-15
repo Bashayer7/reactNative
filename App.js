@@ -4,13 +4,29 @@ import Home from "./Home/Home";
 import { NativeBaseProvider } from "native-base";
 import ShopList from "./Shop/ShopList";
 import ShopDetail from "./Shop/ShopDetail";
+import StackNaci from "./Navigation/StackNaci";
+import { NavigationContainer } from '@react-navigation/native';
+
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>{/* ... */}</Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 export default function App() {
   return (
     <NativeBaseProvider>
-      {/* <Home /> */}
+      <NavigationContainer>
+      <Home />
       <ShopList />
-      {/* <ShopDetail/> */}
+      <ShopDetail />
+      <StackNaci />
+      </NavigationContainer>
     </NativeBaseProvider>
   );
 }

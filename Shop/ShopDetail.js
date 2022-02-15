@@ -5,12 +5,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import ProductList from "../Product/ProductList";
 import { observer } from "mobx-react-lite";
 import ProductItem from "../Product/ProductItem";
-import createNativeNavigator from "";
-const ShopDetail = () => {
+const ShopDetail = (navigation, route) => {
   const shop = shopStore.shops[1];
   // const prod = shop.products.map((product) => (
   //   <ProductItem key={product._id} product={product} />
   // /));
+  const shop = route.params.shop;
+  //if statment
 
   return (
     <SafeAreaView>

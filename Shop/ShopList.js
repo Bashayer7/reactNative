@@ -4,12 +4,11 @@ import shopStore from "../Stores/shopStore";
 
 import { observer } from "mobx-react";
 import ShopItem from "./ShopItem";
-import { StyleSheet } from "react-native";
 import { Box, Center, Heading, VStack } from "native-base";
 
 const ShopList = () => {
   const sl = shopStore.shops.map((shop) => (
-    <ShopItem key={shop._id} shop={shop} />
+    <ShopItem key={shop._id} shop={shop} navigation={navigation} />
   ));
   return;
   <Center w="100%">
