@@ -1,26 +1,21 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { HStack } from "native-base";
+import { Image } from "react-native-svg";
 
-export default function shopItem(shop) {
+const ShopItem = ({ shop }) => {
   return (
-    <View>
+    <HStack w="100%" justifyContent="space-between" alignItems="center">
+      <Image source={{ uri: shop.Image }} style={styles.shopImage} />
       <Text>{shop.name}</Text>
-    </View>
+    </HStack>
   );
-}
+};
+export default ShopItem;
 
-const styles = StyleSheet.create({});
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-
-const shopItem = (shop) => {
-  return (
-    <View>
-      <Text>{shop.name}</Text>
-    </View>
-  )
-}
-
-export default shopItem
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  shopImage: {
+    height: 100,
+    weight: 100,
+  },
+});

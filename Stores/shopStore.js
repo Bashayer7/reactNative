@@ -11,6 +11,7 @@ class ShopStore {
     try {
       const res = await api.get("/shops");
       this.shops = res.data;
+      console.log(res.data);
     } catch (error) {
       console.log(
         "🚀 ~ file: shopStore.js ~ line 15 ~ ShopStore ~ fetchShops= ~ error",
