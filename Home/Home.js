@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, ImageBackground } from "react-native";
 import { Button } from "native-base";
 import React from "react";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     // <View>
     //   <Text>Home</Text>
@@ -32,7 +32,9 @@ const Home = () => {
           BashayerShop
         </Text>
       </View>
-      <Button size="sm">Start shopping</Button>
+      <Button size="sm" onPress={() => navigation.navigate("Shops")}>
+        Start shopping
+      </Button>
     </ImageBackground>
   );
 };

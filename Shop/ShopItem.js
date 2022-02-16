@@ -21,6 +21,6 @@ export default ShopItem;
 const styles = StyleSheet.create({
   shopImage: {
     height: 100,
-    weight: 100,
+    width: 100,
   },
 });

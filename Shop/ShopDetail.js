@@ -6,7 +6,6 @@ import ProductList from "../Product/ProductList";
 import { observer } from "mobx-react-lite";
 import ProductItem from "../Product/ProductItem";
 const ShopDetail = (navigation, route) => {
-  const shop = shopStore.shops[1];
   // const prod = shop.products.map((product) => (
   //   <ProductItem key={product._id} product={product} />
   // /));

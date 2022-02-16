@@ -3,7 +3,8 @@ import React from "react";
 import { HStack, VStack } from "native-base";
 import { Image } from "react-native-svg";
 
-const CartItem = (items) => {
+const CartItem = (item) => {
+  const cost = item.product.price * item.quantity;
   return (
     //horizental to disply the image
     <HStack>
@@ -11,7 +12,10 @@ const CartItem = (items) => {
       {/* vertical to disply details  */}
       <VStack>
         <Text>{items.product.name}</Text>
-        <Text>{items.product.price}</Text>
+        <Text>
+          {items.product.price}KD X {item.quantity}
+        </Text>
+        <Text>{cost}</Text>
       </VStack>
     </HStack>
   );
