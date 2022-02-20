@@ -1,5 +1,7 @@
 import { makeAutoObservable } from "mobx";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import { Toast } from "native-base";
 class CartStore {
   constructor() {
     makeAutoObservable(this);
@@ -30,10 +32,14 @@ class CartStore {
     const foundItem = this.items.find(
       (item) => item.product._id === newItem.product._id
     );
-    if (foundItem) foundItem.quantity = newItem.quantity;
-    else this.items.push(newItem);
+    if (foundItem) {
+      foundItem.quantity = newItem.quantity;
+    } else {
+      this.items.push(newItem);
+    }
   };
 }
+
 const handleAdd = () => {
   const newItem = {
     product: product,
@@ -41,5 +47,23 @@ const handleAdd = () => {
   };
   cartStore.addItemToCart(newItem);
 };
+addItemToCart = async (newItem) => {
+  await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
+};
+removeItemFromCart = async (productId) => {
+  this.items = this.items.filter((item) => item.product._id !== productId);
+  await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
+};
+checkout = async () => {
+  this.items = [];
+  // Alert("good bye");
+  await AsyncStorage.removeItem("myCart");
+  Toast.show({
+    title: "checkout",
+    status: "info",
+    description: "goodbye",
+  });
+};
+
 const cartStore = new CartStore();
 export default cartStore;
